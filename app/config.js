@@ -2,7 +2,13 @@
 var mongoose = require('mongoose');
 // var path = require('path');
 
-mongoose.connect('mongodb://localhost/test');
+if (process.env.NODE_ENV === 'production') {
+  console.log("USING PROD DB");
+  mongoose.connect('mongodb://kevken:shortly123@ds038888.mongolab.com:38888/shortly');
+} else {
+  console.log("USING TEST DB");
+  mongoose.connect('mongodb://localhost/test');
+}
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
