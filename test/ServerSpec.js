@@ -13,7 +13,7 @@ var Link = require('../app/models/link');
 
 var User = require('../app/models/user');
 var Link = require('../app/models/link');
-('', function() {
+describe('BEGIN TESTS', function() {
 
   beforeEach(function(done) {
     // Log out currently signed in user
@@ -82,7 +82,7 @@ var Link = require('../app/models/link');
             Link.findOne({'url' : 'http://www.roflzoo.com/'})
               .exec(function(err,link){
                 if(err) console.log(err);
-                expect(link.title).to.equal('Rofl Zoo - Daily funny animal pictures');
+                expect(link.title).to.equal('Funny pictures of animals, funny dog pictures');
               });
           })
           .end(done);
